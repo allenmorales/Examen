@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ExamenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ExamenEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Area" EntityType="ExamenModel.Area" />
+    <EntitySet Name="Empleado" EntityType="ExamenModel.Empleado" />
+    <EntitySet Name="Empleado_Habilidad" EntityType="ExamenModel.Empleado_Habilidad" />
+    <AssociationSet Name="FK_Empleado_Area" Association="ExamenModel.FK_Empleado_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Empleado" Association="ExamenModel.FK_Empleado_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Empleado1" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Habilidad_Empleado" Association="ExamenModel.FK_Empleado_Habilidad_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Empleado_Habilidad" EntitySet="Empleado_Habilidad" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="IdArea" />
+    </Key>
+    <Property Name="IdArea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Empleado" Relationship="ExamenModel.FK_Empleado_Area" FromRole="Area" ToRole="Empleado" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+    </Key>
+    <Property Name="IdEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Cedula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IdJefe" Type="Int32" />
+    <Property Name="IdArea" Type="Int32" Nullable="false" />
+    <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Area" Relationship="ExamenModel.FK_Empleado_Area" FromRole="Empleado" ToRole="Area" />
+    <NavigationProperty Name="Empleado1" Relationship="ExamenModel.FK_Empleado_Empleado" FromRole="Empleado" ToRole="Empleado1" />
+    <NavigationProperty Name="Empleado2" Relationship="ExamenModel.FK_Empleado_Empleado" FromRole="Empleado1" ToRole="Empleado" />
+    <NavigationProperty Name="Empleado_Habilidad" Relationship="ExamenModel.FK_Empleado_Habilidad_Empleado" FromRole="Empleado" ToRole="Empleado_Habilidad" />
+  </EntityType>
+  <EntityType Name="Empleado_Habilidad">
+    <Key>
+      <PropertyRef Name="IdHabilidad" />
+    </Key>
+    <Property Name="IdHabilidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="NombreHabilidad" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Empleado" Relationship="ExamenModel.FK_Empleado_Habilidad_Empleado" FromRole="Empleado_Habilidad" ToRole="Empleado" />
+  </EntityType>
+  <Association Name="FK_Empleado_Area">
+    <End Type="ExamenModel.Area" Role="Area" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ExamenModel.Empleado" Role="Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="IdArea" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="IdArea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Empleado">
+    <End Type="ExamenModel.Empleado" Role="Empleado" Multiplicity="0..1" />
+    <End Type="ExamenModel.Empleado" Role="Empleado1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="IdEmpleado" />
+      </Principal>
+      <Dependent Role="Empleado1">
+        <PropertyRef Name="IdJefe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Habilidad_Empleado">
+    <End Type="ExamenModel.Empleado" Role="Empleado" Multiplicity="1" />
+    <End Type="ExamenModel.Empleado_Habilidad" Role="Empleado_Habilidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="IdEmpleado" />
+      </Principal>
+      <Dependent Role="Empleado_Habilidad">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

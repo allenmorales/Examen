@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ExamenModelStoreContainer" CdmEntityContainer="ExamenEntities">
+    <EntitySetMapping Name="Area">
+      <EntityTypeMapping TypeName="ExamenModel.Area">
+        <MappingFragment StoreEntitySet="Area">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="ExamenModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="IdJefe" ColumnName="IdJefe" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado_Habilidad">
+      <EntityTypeMapping TypeName="ExamenModel.Empleado_Habilidad">
+        <MappingFragment StoreEntitySet="Empleado_Habilidad">
+          <ScalarProperty Name="NombreHabilidad" ColumnName="NombreHabilidad" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="IdHabilidad" ColumnName="IdHabilidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

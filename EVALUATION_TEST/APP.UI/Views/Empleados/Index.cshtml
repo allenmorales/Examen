@@ -1,0 +1,99 @@
+﻿@model IEnumerable<APP.UI.Controllers.Empleado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<nav class="navbar fixed-top">
+    <div class="row w-100">
+        <div class="col-md-2 align-self-center">
+            <li>
+                <a href="@Url.Action("Index", "Home")"><i class="fa fa-bars"></i> Menu</a>
+            </li>
+        </div>
+        <div class="col-md-8">
+            <h4 class="text-center text-white p-0 m-0">Empleados</h4>
+        </div>
+        <div class="col-md-2 align-self-end">
+            <a href="@Url.Action("Create")"><i class="fa fa-plus-circle"></i> Crear Nuevo</a>
+        </div>
+    </div>
+</nav>
+
+<table class="table info_grid" id ="contenttable">
+    <thead>
+        <tr>
+            <th>
+                <a>@Html.DisplayNameFor(model => model.NombreCompleto)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cedula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaNacimiento)
+            </th>
+            <th>
+                <a> @Html.DisplayNameFor(model => model.FechaIngreso)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Area.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado2.NombreCompleto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaIngreso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empleado2.NombreCompleto)
+            </td>
+            <td>
+                <i class="fa fa-edit pr-1" aria-hidden="true"></i>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdEmpleado }) |
+                <i class="fa fa-info pr-1" aria-hidden="true"></i>
+                @Html.ActionLink("Detalles", "Details", new { id = item.IdEmpleado }) |
+                <i class="fa fa-trash pr-1"></i> @Html.ActionLink("Delete", "Delete", new { id = item.IdEmpleado })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function () {
+        $('body').toggleClass('main');
+    });
+
+
+    $(document).ready(function() {
+        $('#contenttable').DataTable({
+            "searching":true
+        });
+} );
+</script>

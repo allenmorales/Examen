@@ -1,0 +1,82 @@
+﻿@model APP.UI.Controllers.Area
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+<nav class="navbar fixed-top">
+    <div class="row w-100">
+        <div class="col-md-2 align-self-center">
+            <li>
+                <a href="@Url.Action("Index")"><i class="fa fa-arrow-alt-circle-left"></i> Volver</a>
+            </li>
+        </div>
+        <div class="col-md-8">
+            <h4 class="text-center text-white p-0 m-0">Editar Áreas</h4>
+        </div>
+    </div>
+</nav>
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.IdArea)
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="row justify-content-center">
+                <div class="col-md-11">
+                    <div class="row justify-content-left">
+                        <div class="col-md-3 justify-content-end">
+                            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2 text-right" })
+                        </div>
+
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-11">
+                    <div class="row justify-content-center">
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2  text-right" })
+                        </div>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-2">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <input type="submit" value="Editar" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+<script>
+    $(document).ready(function () {
+        $('body').toggleClass('main');
+    });
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

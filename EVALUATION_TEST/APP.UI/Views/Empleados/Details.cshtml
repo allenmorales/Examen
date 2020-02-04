@@ -1,0 +1,127 @@
+﻿@model APP.UI.Controllers.Empleado
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<nav class="navbar fixed-top">
+    <div class="row w-100">
+        <div class="col-md-2 align-self-center">
+            <li>
+                <a href="@Url.Action("Index")"><i class="fa fa-arrow-alt-circle-left"></i> Volver</a>
+            </li>
+        </div>
+        <div class="col-md-8">
+            <h4 class="text-center text-white p-0 m-0">Detalle de Empleado Empleados</h4>
+        </div>
+    </div>
+</nav>
+
+<div>
+    <hr />
+
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-5">
+                    <img class="w-100" src="@ViewBag.objfoto" alt="Alternate Text" />
+                </div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class=" font-weight-bold">@Html.DisplayFor(model => model.NombreCompleto)</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="pb-0 mb-0 font-weight-bold">Ced</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>@Html.DisplayFor(model => model.Cedula)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="pb-0 mb-0 font-weight-bold">Correo</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>@Html.DisplayFor(model => model.Correo)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="pb-0 mb-0 font-weight-bold">Fecha de Nacimiento</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>@Html.DisplayFor(model => model.FechaNacimiento)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="pb-0 mb-0 font-weight-bold">Fecha de Ingreso</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>@Html.DisplayFor(model => model.FechaIngreso)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="pb-0 mb-0 font-weight-bold">Área</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>@Html.DisplayFor(model => model.Area.Nombre)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="pb-0 mb-0 font-weight-bold">Jefe</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>@Html.DisplayFor(model => model.Empleado2.NombreCompleto)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('body').toggleClass('main');
+    });
+</script>
+
+

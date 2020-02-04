@@ -1,0 +1,142 @@
+﻿
+
+html {
+    height: 100%;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: rgba(243,242,243,1);
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+.main {
+    background-color: rgba(29,26,29,1);
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.body-content {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+.wrapper {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.circulo {
+    width: 150px;
+    height: 150px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+    .circulo:hover {
+        background-color: white;
+    }
+
+        .circulo:hover .menu-icon {
+            fill: rgba(29,26,29,1);
+            stroke: rgba(29,26,29,1);
+        }
+
+        .circulo:hover h5 {
+            color: rgba(29,26,29,1) !important;
+        }
+
+.menu-icon {
+    fill: white;
+    stroke: #fff
+}
+
+a {
+    color: white;
+}
+
+    a:hover {
+        color: white;
+    }
+
+.menu_option a {
+    color: white !important;
+}
+
+.fa-plus-circle, .fa-bars, .fa-arrow-alt-circle-left {
+    color: yellow;
+}
+
+.fa-edit, .fa-trash {
+    color: rgba(29,26,29,1);
+}
+
+.info_grid {
+    background-color: white;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+    .info_grid th {
+        border: none;
+    }
+
+    .info_grid a {
+        color: rgba(29,26,29,1);
+    }
+
+.btn-default {
+    background-color: white;
+    border-bottom: 3px solid yellow;
+}
+
+    .btn-default:hover {
+        background-color: rgba(29,26,29,1);
+        border-bottom: 3px solid yelllow;
+        color: white;
+    }
+
+.btn-danger {
+    background-color: white;
+    border-bottom: 3px solid red;
+    color: #212529;
+}
+
+    .btn-danger:hover {
+        background-color: rgba(29,26,29,1);
+        border-bottom: 3px solid red;
+        color: white;
+    }
+
+.navbar {
+    background-color: rgba(29,26,29,1);
+}
+
+.form_top {
+    border-top: 0.5px solid #cccccc;
+}
