@@ -76,6 +76,39 @@ textarea {
     stroke: #fff
 }
 
+
+.circulo_inactive {
+    width: 150px;
+    height: 150px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid #666666;
+}
+
+    .circulo_inactive h5 {
+        color: #666666
+    }
+    .circulo_inactive:hover {
+        background-color: none;
+    }
+
+        .circulo_inactive:hover .menu-icon_inactive {
+            fill: #666666;
+            stroke: #666666;
+        }
+
+        .circulo_inactive:hover h5 {
+            color: #666666;
+        }
+
+
+.menu-icon_inactive {
+    fill: #666666;
+    stroke: #666666;
+}
+
+
 a {
     color: white;
 }
